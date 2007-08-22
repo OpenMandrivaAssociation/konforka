@@ -1,12 +1,13 @@
 %define rev r243
 
 %define	major 0
-%define libname	%mklibname %{name} %{major}
+%define libname %mklibname %{name} %{major}
+%define develname %mklibname %{name} -d
 
 Summary:	Convenience library for common KIN project code
 Name:		konforka
 Version:	0.0.1
-Release:	%mkrel 0.%{rev}.3
+Release:	%mkrel 0.%{rev}.4
 Group:		System/Libraries
 License:	MIT
 URL:		http://kin.klever.net/konforka/
@@ -41,14 +42,15 @@ code common to our projects. It is not likely that you want to try this out
 unless you need it as a dependency for other project. This is why you
 should not expect a lengthier description here.
 
-%package -n	%{libname}-devel
+%package -n	%{develname}
 Summary:	Static library and header files for the konforka library
 Group:		Development/C++
-Provides:	%{name}-devel = %{version}
-Provides:	lib%{name}-devel = %{version}
 Requires:	%{libname} = %{version}
+Provides:	%{name}-devel = %{version}
+Provides:	%{mklibname %{name} 0}-devel = %{version}
+Obsoletes:	%{mklibname %{name} 0}-devel
 
-%description -n	%{libname}-devel
+%description -n	%{develname}
 Convenience library for common KIN project code.
 
 konforka library is a convenience library which is supposed to soak in some
@@ -65,7 +67,7 @@ This package contains the static konforka library and its header files.
 %build
 export WANT_AUTOCONF_2_5=1
 rm -f configure
-libtoolize --copy --force; aclocal-1.8; autoheader; automake -a; autoconf --force
+libtoolize --copy --force; aclocal; autoheader; automake -a; autoconf --force
 
 %configure2_5x
 
@@ -88,7 +90,7 @@ libtoolize --copy --force; aclocal-1.8; autoheader; automake -a; autoconf --forc
 %doc AUTHORS COPYING NEWS
 %{_libdir}/*.so.*
 
-%files -n %{libname}-devel
+%files -n %{develname}
 %defattr(-,root,root)
 %dir %{_includedir}/%{name}
 %{_includedir}/%{name}/*
@@ -96,5 +98,3 @@ libtoolize --copy --force; aclocal-1.8; autoheader; automake -a; autoconf --forc
 %{_libdir}/*.a
 %{_libdir}/*.la
 %{_libdir}/pkgconfig/*.pc
-
-
