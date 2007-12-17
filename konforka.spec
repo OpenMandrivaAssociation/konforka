@@ -20,7 +20,6 @@ BuildRequires:	pqxx-devel
 BuildRequires:	doxygen
 BuildRequires:	libxslt-proc
 BuildRequires:	postgresql-devel
-BuildRoot:	%{_tmppath}/%{name}-%{version}-root
 
 %description
 Convenience library for common KIN project code.
