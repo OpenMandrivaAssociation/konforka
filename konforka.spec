@@ -16,7 +16,7 @@ BuildRequires:	autoconf2.5
 BuildRequires:	automake1.8
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
-BuildRequires:	pqxx-devel
+BuildRequires:	libpqxx-devel
 BuildRequires:	doxygen
 BuildRequires:	libxslt-proc
 BuildRequires:	postgresql-devel
