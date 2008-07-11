@@ -12,6 +12,7 @@ Group:		System/Libraries
 License:	MIT
 URL:		http://kin.klever.net/konforka/
 Source0:	%{name}-%{version}-%{rev}.tar.bz2
+Patch0:		konforka-linkage_fix.diff
 BuildRequires:	autoconf2.5
 BuildRequires:	automake1.8
 BuildRequires:	libtool
@@ -63,6 +64,7 @@ This package contains the static konforka library and its header files.
 %prep
 
 %setup -q -n %{name}
+%patch0 -p0
 
 %build
 export WANT_AUTOCONF_2_5=1
