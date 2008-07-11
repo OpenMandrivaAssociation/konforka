@@ -7,7 +7,7 @@
 Summary:	Convenience library for common KIN project code
 Name:		konforka
 Version:	0.0.1
-Release:	%mkrel 0.%{rev}.4
+Release:	%mkrel 0.%{rev}.5
 Group:		System/Libraries
 License:	MIT
 URL:		http://kin.klever.net/konforka/
@@ -20,7 +20,7 @@ BuildRequires:	pqxx-devel
 BuildRequires:	doxygen
 BuildRequires:	libxslt-proc
 BuildRequires:	postgresql-devel
-BuildRoot:	%{_tmppath}/%{name}-%{version}-root
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 Convenience library for common KIN project code.
@@ -74,7 +74,7 @@ libtoolize --copy --force; aclocal; autoheader; automake -a; autoconf --force
 %make
 
 %install
-[ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
+rm -rf %{buildroot}
 
 %makeinstall_std
 
@@ -87,7 +87,7 @@ libtoolize --copy --force; aclocal; autoheader; automake -a; autoconf --force
 %endif
 
 %clean
-[ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
+rm -rf %{buildroot}
 
 %files -n %{libname}
 %defattr(-,root,root)
