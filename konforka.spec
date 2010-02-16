@@ -7,7 +7,7 @@
 Summary:	Convenience library for common KIN project code
 Name:		konforka
 Version:	0.0.1
-Release:	%mkrel 0.%{rev}.7
+Release:	%mkrel 0.%{rev}.8
 Group:		System/Libraries
 License:	MIT
 URL:		http://kin.klever.net/konforka/
@@ -69,10 +69,7 @@ This package contains the static konforka library and its header files.
 %patch1 -p0
 
 %build
-export WANT_AUTOCONF_2_5=1
-rm -f configure
-libtoolize --copy --force; aclocal; autoheader; automake -a; autoconf --force
-
+autoreconf -fi
 %configure2_5x
 
 %make
