@@ -7,7 +7,7 @@
 Summary:	Convenience library for common KIN project code
 Name:		konforka
 Version:	0.0.1
-Release:	%mkrel 0.%{rev}.8
+Release:	%mkrel 0.%{rev}.9
 Group:		System/Libraries
 License:	MIT
 URL:		http://kin.klever.net/konforka/
