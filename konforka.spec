@@ -7,22 +7,19 @@
 Summary:	Convenience library for common KIN project code
 Name:		konforka
 Version:	0.0.1
-Release:	%mkrel 0.%{rev}.9
+Release:	%mkrel 0.%{rev}.10
 Group:		System/Libraries
 License:	MIT
 URL:		http://kin.klever.net/konforka/
 Source0:	%{name}-%{version}-%{rev}.tar.bz2
 Patch0:		konforka-linkage_fix.diff
 Patch1:		konforka-gcc43.diff
-BuildRequires:	autoconf2.5
-BuildRequires:	automake1.8
-BuildRequires:	libtool
+BuildRequires:	autoconf automake libtool
 BuildRequires:	pkgconfig
 BuildRequires:	libpqxx-devel
 BuildRequires:	doxygen
 BuildRequires:	libxslt-proc
 BuildRequires:	postgresql-devel
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 Convenience library for common KIN project code.
@@ -79,27 +76,15 @@ rm -rf %{buildroot}
 
 %makeinstall_std
 
-%if %mdkversion < 200900
-%post -n %{libname} -p /sbin/ldconfig
-%endif
-
-%if %mdkversion < 200900
-%postun -n %{libname} -p /sbin/ldconfig
-%endif
-
-%clean
-rm -rf %{buildroot}
+# cleanups
+rm -f %{buildroot}%{_libdir}/*.*a
 
 %files -n %{libname}
-%defattr(-,root,root)
 %doc AUTHORS COPYING NEWS
 %{_libdir}/*.so.*
 
 %files -n %{develname}
-%defattr(-,root,root)
 %dir %{_includedir}/%{name}
 %{_includedir}/%{name}/*
 %{_libdir}/*.so
-%{_libdir}/*.a
-%{_libdir}/*.la
 %{_libdir}/pkgconfig/*.pc
