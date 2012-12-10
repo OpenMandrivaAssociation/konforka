@@ -88,3 +88,57 @@ rm -f %{buildroot}%{_libdir}/*.*a
 %{_includedir}/%{name}/*
 %{_libdir}/*.so
 %{_libdir}/pkgconfig/*.pc
+
+
+%changelog
+* Sat Feb 11 2012 Oden Eriksson <oeriksson@mandriva.com> 0.0.1-0.r243.10mdv2012.0
++ Revision: 773225
+- various fixes
+
+* Mon Dec 06 2010 Oden Eriksson <oeriksson@mandriva.com> 0.0.1-0.r243.9mdv2011.0
++ Revision: 612656
+- the mass rebuild of 2010.1 packages
+
+* Tue Feb 16 2010 Funda Wang <fwang@mandriva.org> 0.0.1-0.r243.8mdv2010.1
++ Revision: 506452
+- rebuild
+
+* Mon Oct 05 2009 Oden Eriksson <oeriksson@mandriva.com> 0.0.1-0.r243.7mdv2010.0
++ Revision: 453959
+- fix build
+- rebuild
+
+  + Thierry Vignaud <tv@mandriva.org>
+    - rebuild
+
+* Fri Jul 11 2008 Oden Eriksson <oeriksson@mandriva.com> 0.0.1-0.r243.5mdv2009.0
++ Revision: 233800
+- fix linkage
+- fix deps
+- rebuild
+
+  + Pixel <pixel@mandriva.com>
+    - do not call ldconfig in %%post/%%postun, it is now handled by filetriggers
+
+  + Olivier Blin <blino@mandriva.org>
+    - restore BuildRoot
+
+  + Thierry Vignaud <tv@mandriva.org>
+    - kill re-definition of %%buildroot on Pixel's request
+
+* Wed Aug 22 2007 Oden Eriksson <oeriksson@mandriva.com> 0.0.1-0.r243.4mdv2008.0
++ Revision: 68891
+- conform to the 2008 specs
+
+
+* Sat Jan 13 2007 Oden Eriksson <oeriksson@mandriva.com> 0.0.1-0.r243.3mdv2007.0
++ Revision: 108398
+- rebuild
+- fix deps
+- fix deps
+- fix deps
+- Import konforka
+
+* Sat Jan 13 2007 Oden Eriksson <oeriksson@mandriva.com> 0.0.1-0.r243.1mdv2007.1
+- initial Mandriva package
+
