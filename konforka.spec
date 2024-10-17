@@ -8,7 +8,7 @@ Version:	0.0.1
 Release:	0.20221024.1
 Group:		System/Libraries
 License:	MIT
-URL:		http://kin.klever.net/konforka/
+URL:		https://kin.klever.net/konforka/
 Source0:	konforka-20221024.tar.xz
 Patch0:		konforka-linkage_fix.diff
 Patch1:		konforka-gcc43.diff
